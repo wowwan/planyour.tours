@@ -6,7 +6,7 @@ angular.module('ngTokenAuthTestApp', ['ng-token-auth'])
         // will extend the defaults using angular.extend
 
         $authProvider.configure({
-            apiUrl:                  '/api',
+            apiUrl:                  'http://api-20-wowwan.c9users.io:8080',
             tokenValidationPath:     '/auth/validate_token',
             signOutUrl:              '/auth/sign_out',
             emailRegistrationPath:   '/auth',
@@ -22,11 +22,9 @@ angular.module('ngTokenAuthTestApp', ['ng-token-auth'])
             validateOnPageLoad:      true,
             proxyIf:                 function() { return false; },
             proxyUrl:                '/proxy',
-            omniauthWindowType:      'sameWindow',
+            omniauthWindowType:      'newWindow',
             authProviderPaths: {
-                github:   '/auth/github',
-                facebook: '/auth/facebook',
-                google:   '/auth/google'
+                facebook: '/omniauth/facebook'
             },
             tokenFormat: {
                 "access-token": "{{ token }}",
@@ -40,7 +38,7 @@ angular.module('ngTokenAuthTestApp', ['ng-token-auth'])
                 expires: 9999,
                 expirationUnit: 'days',
                 secure: false,
-                domain: 'domain.com'
+                domain: 'http://api-20-wowwan.c9users.io:8080/api/v1'
             },
             createPopup: function(url) {
                 return window.open(url, '_blank', 'closebuttoncaption=Cancel');

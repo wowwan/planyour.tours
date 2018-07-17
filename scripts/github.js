@@ -1,12 +1,15 @@
 angular.module('ngTokenAuthTestApp')
     .controller('IndexCtrl', function($scope, $auth) {
-        $scope.handleBtnClick = function() {
-            $auth.authenticate('github')
+
+        $scope.handlePwdResetBtnClick = function() {
+            $auth.requestPasswordReset($scope.pwdResetForm)
                 .then(function(resp) {
-                    // handle success
+                    console.log('Form submitted',resp);
+                    // handle success response
                 })
                 .catch(function(resp) {
-                    // handle errors
+                    console.log('Form not submitted',resp);
+                    // handle error response
                 });
         };
-    })
+    });
